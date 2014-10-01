@@ -54,25 +54,25 @@ TopBarRapper = React.createClass
     showSignInModal: false
     showSignUpModal: false
 
-  triggerSignInModal: ->
+  toggleSignIn: ->
 
     @setState
-      showSignInModal : true
+      showSignInModal : !@state.showSignInModal
       showSignUpModal : false
 
-  triggerSignUpModal: ->
+  toggleSignUp: ->
     @setState
-      showSignUpModal : true
+      showSignUpModal : !@state.showSignUpModal
       showSignInModal : false
 
   render: ->
     <div>
-      <TopBar languageOptions={@props.query.languageProps} user={null} onTriggerSignIn={@triggerSignInModal} onTriggerSignUp={@triggerSignUpModal} />
-        <ModalWindow show={@state.showSignInModal}>
+      <TopBar languageOptions={@props.query.languageProps} user={null} onTriggerSignIn={@toggleSignIn} onTriggerSignUp={@toggleSignUp} />
+        <ModalWindow onClose={@toggleSignIn} show={@state.showSignInModal}>
           <SignIn />
         </ModalWindow>
 
-        <ModalWindow show={@state.showSignUpModal}>
+        <ModalWindow onClose={@toggleSignUp} show={@state.showSignUpModal}>
           <SignUp />
         </ModalWindow>
     </div>

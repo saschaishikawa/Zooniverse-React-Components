@@ -6,7 +6,7 @@ ModalWindow = React.createClass
 		show: false
 
 	closeModal: ->
-
+		@props.onClose()
 
 	render: ->
 		<div className="modalContainer">
