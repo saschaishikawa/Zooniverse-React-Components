@@ -10,7 +10,7 @@ TopBar = React.createClass
   displayName : "TopBar"
 
   languageChanged:(data)->
-    @props.languageChanged(data)
+    alert('lan change')
 
   triggerSignUp: ->
     alert("signUp")
