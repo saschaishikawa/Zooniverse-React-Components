@@ -10,8 +10,9 @@ MenuDropDown = React.createClass
     @setState
       shown : !@state.shown
 
-  triggerSelection:(selectedElement)->
-    selection = selectedElement.target.innerHTML
+  triggerSelection:(event)->
+    event.preventDefault()
+    selection = event.target.innerHTML
     @setState
       selected : selection
       shown    : false
@@ -26,9 +27,10 @@ MenuDropDown = React.createClass
 
   render: ->
     console.log @state
-    <div>
-      <h1 onClick={@toggle}>I am a totally awesome drop down</h1>
-
+    <div className='menu_drop_down'>
+      <div class='header' onClick={@toggle}>
+        {@props.children}
+      </div>
       {if @state.shown
         <ul>
           {@props.options.map @optionElements}

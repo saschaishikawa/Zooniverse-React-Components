@@ -16,10 +16,10 @@ ModalWindow = React.createClass
 					<br />
 					<br />
 					<div className='modalContent'>
+						<h1> {@props.title} </h1>
 						{@props.children }
 					</div>
 				</div>
 			}
-		</div>
 
 module.exports = ModalWindow

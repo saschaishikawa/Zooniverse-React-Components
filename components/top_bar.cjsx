@@ -3,8 +3,10 @@ MenuDropDown = require './MenuDropDown'
 ModalWindow = require './ModalWindow'
 SignIn      = require './SignIn'
 SignUp      = require './SignUp'
+ZooniverseLogo = require './zooniverse_logo'
+LanguageLogo = require './language_logo'
 
-User  =
+User =
   email: "stuart@stu.com"
   name : "Stuart Lynn"
 
@@ -25,7 +27,9 @@ TopBar = React.createClass
     alert("signOut")
 
   render: ->
-    <div>
+    <div className="topbar">
+      <ZooniverseLogo />
+      <span> A Zooniverse project </span>
       {if @props.user
         <div>
           <span>{@props.user.name}</span>
@@ -37,7 +41,9 @@ TopBar = React.createClass
           <a onClick={@triggerSignIn}> Sign in</a>
         </div>
       }
-      <MenuDropDown show={true} onDropDownChange={@languageChanged} options={["one", "two", "three"]} />
+      <MenuDropDown show={false} onDropDownChange={@languageChanged} options={["one", "two", "three"]} >
+        <LanguageLogo />
+      </MenuDropDown>
     </div>
 
 
