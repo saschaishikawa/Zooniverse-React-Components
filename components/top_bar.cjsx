@@ -54,11 +54,11 @@ TopBarRapper = React.createClass
   render: ->
     <div>
       <TopBar languageOptions={@props.query.languageProps} user={null} onTriggerSignIn={@triggerSignInModal} />
-      <ModalWindow show={@state.showSignInModal}>
+      <ModalWindow title="Sign in" show={@state.showSignInModal}>
         <SignIn />
       </ModalWindow>
 
-      <ModalWindow show={@state.showSignUpModal}>
+      <ModalWindow title="Sign up" show={@state.showSignUpModal}>
         <SignUp />
       </ModalWindow>
     </div>

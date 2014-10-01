@@ -7,7 +7,7 @@ ModalWindow = React.createClass
 
 	render: ->
 		<div className="modal">
-			<h1> This is a modal </h1>
+			<h1> {@props.title} </h1>
 			{@props.children}
 		</div>
 
