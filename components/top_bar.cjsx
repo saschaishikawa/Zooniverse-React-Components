@@ -1,7 +1,7 @@
 React  = require 'react'
 MenuDropDown = require './MenuDropDown'
 
-User  = 
+User  =
   email: "stuart@stu.com"
   name : "Stuart Lynn"
 
@@ -19,7 +19,7 @@ TopBar = React.createClass
     alert("signIn")
 
   triggerSignOut: ->
-    alert("signOut")   
+    alert("signOut")
 
   componentDidMount: ->
     console.log @props
@@ -27,17 +27,17 @@ TopBar = React.createClass
   render: ->
     <div>
       {if @props.user
-        <div> 
+        <div>
           <span>{@props.user.name}</span>
           <a onClick={@triggerSignOut}>Sign out</a>
         </div>
       else
-        <div> 
+        <div>
           <a onClick={@triggerSignUp}> Sign up</a>
           <a onClick={@triggerSignIn}> Sign in</a>
         </div>
       }
-      <MenuDropDown onDropDownChange={@languageChanged} options={@props.languageOptions} />
+      <MenuDropDown show={false} onDropDownChange={@languageChanged} options={@props.languageOptions} />
     </div>
 
 
