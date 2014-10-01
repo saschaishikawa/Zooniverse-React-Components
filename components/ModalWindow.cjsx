@@ -1,13 +1,13 @@
 React = require 'react'
-SignIn = require './SignIn'
+
 ModalWindow = React.createClass
-	
+
 	getInitialState: ->
-		shown: @props.show 
+		shown: @props.show || false 
 
 	render: ->
 		<div>
-			<SignIn />
+			<h1> MODAL</h1>
 		</div>
 
 

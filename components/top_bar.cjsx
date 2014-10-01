@@ -45,17 +45,17 @@ TopBar = React.createClass
 TopBarRapper = React.createClass
   displayName : "TopBarRapper"
 
-  # getInitialState: ->
-    # showSignInModal: false
+  getInitialState: ->
+    showSignInModal: false
 
   triggerSignInModal: ->
-    @setState 
+    @setState
       showSignInModal : true
 
   render: ->
     <div>
       <TopBar languageOptions={@props.query.languageProps} user={User} onTriggerSignIn={@triggerSignInModal} />
-      <ModalWindow show={true}/>
+      <ModalWindow show={@state.showSignInModal}/>
     </div>
 
 module.exports = TopBarRapper
