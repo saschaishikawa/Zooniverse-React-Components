@@ -20,6 +20,7 @@ MenuDropDown = React.createClass
       classes = 'selected'
     else
       classes= ''
+    @props.onDropDownChange(opt)
     <li className= "menu_item #{classes}" onClick=@triggerSelection><a>{opt}</a></li>
 
   render: ->
