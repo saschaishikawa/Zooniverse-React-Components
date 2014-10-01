@@ -27,11 +27,15 @@ TopBar = React.createClass
   render: ->
     <div>
       {if @props.user
-        <span>{@props.user.name}</span>
-        <a onClick={@triggerSignOut}>Sign out</a>
-      else 
-        <a onClick={@triggerSignUp}> Sign up</a>
-        <a onClick={@triggerSignIn}> Sign in</a>
+        <div> 
+          <span>{@props.user.name}</span>
+          <a onClick={@triggerSignOut}>Sign out</a>
+        </div>
+      else
+        <div> 
+          <a onClick={@triggerSignUp}> Sign up</a>
+          <a onClick={@triggerSignIn}> Sign in</a>
+        </div>
       }
       <MenuDropDown onDropDownChange={@languageChanged} options={@props.languageOptions} />
     </div>
