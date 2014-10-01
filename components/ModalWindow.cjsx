@@ -2,14 +2,24 @@ React = require 'react'
 
 ModalWindow = React.createClass
 
-	getInitialState: ->
-		shown: @props.show || false
+	getDefaultProps : ->
+		show: false
+	
+	closeModal: ->
+
 
 	render: ->
-		<div className="modal">
-			<h1> This is a modal </h1>
-			{@props.children}
+		<div className="modalContainer">
+			{if @props.show
+				<div className="modal">
+					<a className="modalClose" onClick={@closeModal}>x</a>
+					<br />
+					<br />
+					<div className='modalContent'>
+						{@props.children }
+					</div>
+				</div>
+			}
 		</div>
-
 
 module.exports = ModalWindow
