@@ -15,7 +15,7 @@ TopBar = React.createClass
   displayName : "TopBar"
 
   languageChanged:(data)->
-    alert('lan change')
+    console.log "lang change"
 
   triggerSignUp: ->
     @props.onTriggerSignUp()
@@ -24,7 +24,7 @@ TopBar = React.createClass
     @props.onTriggerSignIn()
 
   triggerSignOut: ->
-    alert("signOut")
+    console.log "signOut"
 
   render: ->
     <div className="topbar">
