@@ -1,6 +1,7 @@
 React  = require 'react'
 MenuDropDown = require './MenuDropDown'
 ModalWindow = require './ModalWindow'
+SignIn      = require './SignIn'
 
 User  =
   email: "stuart@stu.com"
@@ -17,13 +18,10 @@ TopBar = React.createClass
     alert("signUp")
 
   triggerSignIn: ->
-    alert("signIn")
+    @props.onTriggerSignIn
 
   triggerSignOut: ->
     alert("signOut")
-
-  componentDidMount: ->
-    console.log @props
 
   render: ->
     <div>
@@ -47,6 +45,7 @@ TopBarRapper = React.createClass
 
   getInitialState: ->
     showSignInModal: false
+    showSignUpModal: false
 
   triggerSignInModal: ->
     @setState
@@ -54,8 +53,14 @@ TopBarRapper = React.createClass
 
   render: ->
     <div>
-      <TopBar languageOptions={@props.query.languageProps} user={User} onTriggerSignIn={@triggerSignInModal} />
-      <ModalWindow show={@state.showSignInModal}/>
+      <TopBar languageOptions={@props.query.languageProps} user={null} onTriggerSignIn={@triggerSignInModal} />
+      <ModalWindow show={@state.showSignInModal}>
+        <SignIn />
+      </ModalWindow>
+
+      <ModalWindow show={@state.showSignUpModal}>
+        <SignUp />
+      </ModalWindow>
     </div>
 
 module.exports = TopBarRapper

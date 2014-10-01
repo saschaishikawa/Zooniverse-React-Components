@@ -3,11 +3,12 @@ React = require 'react'
 ModalWindow = React.createClass
 
 	getInitialState: ->
-		shown: @props.show || false 
+		shown: @props.show || false
 
 	render: ->
-		<div>
-			<h1> MODAL</h1>
+		<div className="modal">
+			<h1> This is a modal </h1>
+			{@props.children}
 		</div>
 
 
