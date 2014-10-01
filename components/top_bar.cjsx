@@ -1,22 +1,38 @@
 React  = require 'react'
 MenuDropDown = require './MenuDropDown'
 
+User  = 
+  email: "stuart@stu.com"
+  name : "Stuart Lynn"
+
+
 TopBar = React.createClass
   displayName : "TopBar"
 
   languageChanged:(data)->
     @props.languageChanged(data)
 
-  triggerSignUp :->
+  triggerSignUp: ->
     alert("signUp")
 
-  triggerSignIn :->
+  triggerSignIn: ->
     alert("signIn")
+
+  triggerSignOut: ->
+    alert("signOut")   
+
+  componentDidMount: ->
+    console.log @props
 
   render: ->
     <div>
-      <a onClick={@triggerSignUp}> Sign up</a>
-      <a onClick={@triggerSignIn}> Sign in</a>
+      {if @props.user
+        <span>{@props.user.name}</span>
+        <a onClick={@triggerSignOut}>Sign out</a>
+      else 
+        <a onClick={@triggerSignUp}> Sign up</a>
+        <a onClick={@triggerSignIn}> Sign in</a>
+      }
       <MenuDropDown onDropDownChange={@languageChanged} options={@props.languageOptions} />
     </div>
 
@@ -24,7 +40,9 @@ TopBar = React.createClass
 TopBarRapper = React.createClass
   displayName : "TopBarRapper"
   render: ->
-    <TopBar languageOptions={@props.query.languageProps} />
+    <TopBar languageOptions={@props.query.languageProps} user={User} />
+
+
 
 
 
