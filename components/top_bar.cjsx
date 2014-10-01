@@ -2,6 +2,7 @@ React  = require 'react'
 MenuDropDown = require './MenuDropDown'
 ModalWindow = require './ModalWindow'
 SignIn      = require './SignIn'
+SignUp      = require './SignUp'
 
 User  =
   email: "stuart@stu.com"
@@ -15,10 +16,10 @@ TopBar = React.createClass
     alert('lan change')
 
   triggerSignUp: ->
-    alert("signUp")
+    @props.onTriggerSignUp()
 
   triggerSignIn: ->
-    @props.onTriggerSignIn
+    @props.onTriggerSignIn()
 
   triggerSignOut: ->
     alert("signOut")
