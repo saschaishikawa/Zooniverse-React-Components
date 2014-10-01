@@ -4,7 +4,7 @@ ModalWindow = React.createClass
 
 	getDefaultProps : ->
 		show: false
-	
+
 	closeModal: ->
 
 
@@ -17,9 +17,10 @@ ModalWindow = React.createClass
 					<br />
 					<div className='modalContent'>
 						<h1> {@props.title} </h1>
-						{@props.children }
+						{@props.children}
 					</div>
 				</div>
 			}
+		</div>
 
 module.exports = ModalWindow
