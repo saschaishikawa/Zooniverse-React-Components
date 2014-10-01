@@ -37,7 +37,7 @@ TopBar = React.createClass
           <a onClick={@triggerSignIn}> Sign in</a>
         </div>
       }
-      <MenuDropDown show={false} onDropDownChange={@languageChanged} options={@props.languageOptions} />
+      <MenuDropDown show={true} onDropDownChange={@languageChanged} options={["one", "two", "three"]} />
     </div>
 
 
