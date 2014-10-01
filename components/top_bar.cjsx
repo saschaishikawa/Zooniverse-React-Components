@@ -52,16 +52,18 @@ TopBarRapper = React.createClass
 
   getInitialState: ->
     showSignInModal: false
-    showSignUpModal: false 
+    showSignUpModal: false
 
   triggerSignInModal: ->
-    
+
     @setState
       showSignInModal : true
+      showSignUpModal : false
 
   triggerSignUpModal: ->
     @setState
-      showSignUpModal: true    
+      showSignUpModal : true
+      showSignInModal : false
 
   render: ->
     <div>
